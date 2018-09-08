@@ -1,3 +1,4 @@
+/* efs filesystem */
 resource "aws_efs_file_system" efs {
 #resource "aws_efs_file_system" "${var.name}" {
   creation_token = "my-efs"
@@ -47,7 +48,7 @@ resource "aws_security_group" "efs" {
 
 
 # next two stanza's come from https://www.terraform.io/docs/providers/aws/d/subnet_ids.html
-/* The following example retrieves a list of all subnets in a VPC with a custom tag of Name = "eks-robmetrics-node" 
+/* The following example retrieves a list of all subnets in a VPC with a custom tag of Name = "eks-robmetrics-node"
 so that the aws_efs_mount_target resource can loop through the subnets, putting mount targets across availability zones.
 */
 
