@@ -62,8 +62,8 @@ output "kubeconfig" {
 # from  https://cwong47.gitlab.io/technology-terraform-aws-efs/ :
 
 
-output "name" {
-  value = "${var.name}"
+output "efsname" {
+  value = "${var.my_efs_fs_name}"
 }
 
 output "file_system_id" {

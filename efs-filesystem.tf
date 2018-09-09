@@ -1,6 +1,5 @@
 /* efs filesystem comment in branch develop*/
 resource "aws_efs_file_system" efs {
-#resource "aws_efs_file_system" "${var.name}" {
   creation_token = "my-efs"
   encrypted = "true"
 
@@ -14,7 +13,7 @@ resource "aws_efs_file_system" efs {
 # next EFS SG with aid of https://cwong47.gitlab.io/technology-terraform-aws-efs/
 
 resource "aws_security_group" "efs" {
-  name        = "${var.name}-efs-c${var.cluster_num}"
+  name        = "${var.my_efs_fs_name}-efs-c${var.cluster_num}"
   description = "Allow NFS traffic."
   vpc_id      = "${aws_vpc.robmetrics.id}"
 
@@ -39,7 +38,7 @@ resource "aws_security_group" "efs" {
   }
 
   tags {
-    Name        = "${var.name}-c${var.cluster_num}"
+    Name        = "${var.my_efs_fs_name}-c${var.cluster_num}"
     Environment = "${var.environment}"
     Cluster     = "${var.cluster_num}"
     Terraform   = "true"

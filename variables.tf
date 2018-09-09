@@ -9,7 +9,7 @@ variable "cluster-name" {
 
 # from  https://cwong47.gitlab.io/technology-terraform-aws-efs/
 
-variable "name" {
+variable "my_efs_fs_name" {
   description = "(Required) The reference_name of your file system. Also, used in tags."
   type        = "string"
   default = "efs"
